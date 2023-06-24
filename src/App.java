@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+ 
 
 public class App extends Application{
 
@@ -31,6 +32,8 @@ public class App extends Application{
 
         // name label
         Label nameLabel = new Label("Username: ");
+        nameLabel.setId("bold-label");
+
         GridPane.setConstraints(nameLabel, 0, 0);
 
         // name input
@@ -50,10 +53,17 @@ public class App extends Application{
         Button loginButton = new Button("Log In");
         GridPane.setConstraints(loginButton, 1, 2);
 
+        Button signUpButton = new Button("Sign up");
+        GridPane.setConstraints(signUpButton, 1, 3);
+        signUpButton.getStyleClass().add("button-blue");
 
-        grid.getChildren().addAll(nameInput, nameLabel, passInput, passLabel, loginButton);
+        
+
+
+        grid.getChildren().addAll(nameInput, nameLabel, passInput, passLabel, loginButton,signUpButton);
 
         Scene scene = new Scene(grid, 300, 200);
+        scene.getStylesheets().add("viper.css");
         window.setScene(scene);
         window.show();
     }
